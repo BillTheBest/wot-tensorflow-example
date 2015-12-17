@@ -44,5 +44,6 @@ def train(message,meta,headers):
 w = Wot("amqp://test:test@127.0.0.1:5672/wot")
 w.start( [ 
 	( w.new_channel, []),
-	( w.stream_resource, [ "mnist", train ]) 
+	( w.create_binding, [ "mnist", "model1" ]),
+	( w.stream_resource, [ "model1", train ]) 
 ])
